@@ -1,0 +1,97 @@
+* { box-sizing: border-box; }
+
+:root {
+  --bg: #07111f;
+  --panel: #0d1a2b;
+  --panel-2: #11243a;
+  --line: #203753;
+  --text: #edf7ff;
+  --muted: #91a7bc;
+  --cyan: #35e4c1;
+  --blue: #64a9ff;
+  --danger: #ff7285;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 80% 0%, rgba(53, 228, 193, .08), transparent 28rem),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button, input { font: inherit; }
+
+.shell { max-width: 1180px; margin: auto; padding: 32px 24px 48px; }
+
+.topbar, .hero, .section-heading, .phase-tabs, footer { display: flex; align-items: center; }
+.topbar { justify-content: space-between; margin-bottom: 24px; }
+.topbar h1 { margin: 2px 0 0; font-size: clamp(32px, 6vw, 58px); letter-spacing: -.05em; }
+.topbar h1 span { color: var(--cyan); }
+.eyebrow { margin: 0; color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: .22em; }
+
+.start-date { display: grid; gap: 6px; color: var(--muted); font-size: 12px; }
+.start-date input { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); color: var(--text); padding: 9px 11px; color-scheme: dark; }
+
+.hero { gap: 20px; }
+.countdown-panel, .progress-panel { border: 1px solid var(--line); background: rgba(13, 26, 43, .9); border-radius: 16px; }
+.countdown-panel { flex: 1; padding: clamp(24px, 5vw, 48px); }
+.status { display: flex; align-items: center; gap: 8px; color: var(--cyan); font-size: 12px; font-weight: 800; letter-spacing: .12em; }
+.pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 16px var(--cyan); animation: pulse 1.5s infinite; }
+@keyframes pulse { 50% { opacity: .35; } }
+.countdown-panel h2 { margin: 12px 0 18px; color: var(--muted); font-size: 18px; }
+.countdown { display: grid; grid-template-columns: repeat(4, minmax(70px, 1fr)); gap: 10px; }
+.countdown div { min-width: 0; border-right: 1px solid var(--line); }
+.countdown div:last-child { border-right: 0; }
+.countdown strong { display: block; font-size: clamp(42px, 8vw, 82px); line-height: 1; letter-spacing: -.06em; }
+.countdown span { display: block; margin-top: 10px; color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .16em; }
+.target { margin: 26px 0 0; color: var(--muted); font-size: 13px; }
+.target strong { color: var(--text); }
+
+.progress-panel { width: 280px; min-height: 274px; display: grid; place-items: center; align-content: center; gap: 18px; }
+.progress-ring { --progress: 0deg; width: 150px; height: 150px; display: grid; place-items: center; border-radius: 50%; background: conic-gradient(var(--cyan) var(--progress), var(--panel-2) 0); position: relative; }
+.progress-ring::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: var(--panel); }
+.progress-ring div { position: relative; text-align: center; }
+.progress-ring strong, .progress-ring span { display: block; }
+.progress-ring strong { font-size: 34px; }
+.progress-ring span { color: var(--muted); font-size: 12px; }
+.progress-copy { display: flex; width: 100%; justify-content: space-around; color: var(--muted); font-size: 12px; }
+.progress-copy p { margin: 0; text-align: center; }
+.progress-copy strong { display: block; color: var(--text); font-size: 18px; }
+
+.phase-tabs { gap: 8px; margin: 24px 0 30px; overflow-x: auto; }
+.tab, .ghost-button { border: 1px solid var(--line); border-radius: 8px; background: transparent; color: var(--muted); padding: 10px 14px; cursor: pointer; white-space: nowrap; }
+.tab.active { border-color: var(--cyan); background: rgba(53, 228, 193, .08); color: var(--cyan); }
+.tab:focus-visible, .ghost-button:focus-visible, input:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+.section-heading { justify-content: space-between; }
+.section-heading h2 { font-size: 20px; }
+.ghost-button { font-size: 12px; }
+.challenge-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.challenge-card { display: grid; grid-template-columns: 44px 1fr 22px; align-items: start; gap: 12px; min-height: 126px; border: 1px solid var(--line); border-radius: 12px; background: rgba(13, 26, 43, .68); padding: 16px; transition: .2s ease; }
+.challenge-card:hover { transform: translateY(-2px); border-color: #315172; }
+.challenge-card.completed { border-color: rgba(53, 228, 193, .5); background: rgba(53, 228, 193, .05); }
+.day-number { color: var(--cyan); font-weight: 900; font-size: 12px; }
+.challenge-card h3 { margin: 0 0 6px; font-size: 15px; }
+.challenge-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.challenge-card input { width: 18px; height: 18px; accent-color: var(--cyan); cursor: pointer; }
+footer { justify-content: center; border-top: 1px solid var(--line); margin-top: 38px; padding-top: 24px; color: var(--muted); text-align: center; font-size: 12px; }
+
+@media (max-width: 820px) {
+  .hero { align-items: stretch; }
+  .progress-panel { width: 220px; }
+  .challenge-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .shell { padding-inline: 16px; }
+  .topbar { align-items: end; }
+  .hero { flex-direction: column; }
+  .progress-panel { width: 100%; min-height: 220px; }
+  .countdown-panel { padding: 24px 16px; }
+  .countdown strong { font-size: clamp(34px, 13vw, 58px); }
+  .countdown div { text-align: center; }
+  .challenge-grid { grid-template-columns: 1fr; }
+}

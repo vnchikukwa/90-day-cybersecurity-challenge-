@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>Cyber 90 | 90-Day Challenge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">PERSONAL SECURITY LAB</p>
+        <h1>CYBER<span>90</span></h1>
+      </div>
+      <label class="start-date">
+        <span>Start date</span>
+        <input id="startDate" type="date">
+      </label>
+    </header>
+
+    <section class="hero" aria-labelledby="challenge-title">
+      <div class="countdown-panel">
+        <p class="status"><span class="pulse"></span><span id="statusText">CHALLENGE ACTIVE</span></p>
+        <h2 id="challenge-title">You have</h2>
+        <div id="countdown" class="countdown" aria-live="polite">
+          <div><strong id="days">90</strong><span>Days</span></div>
+          <div><strong id="hours">00</strong><span>Hours</span></div>
+          <div><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <p class="target">Challenge ends <strong id="endDate">—</strong></p>
+      </div>
+
+      <aside class="progress-panel" aria-label="Challenge progress">
+        <div class="progress-ring" id="progressRing">
+          <div><strong id="progressPercent">0%</strong><span>complete</span></div>
+        </div>
+        <div class="progress-copy">
+          <p><strong id="completedCount">0</strong> tasks finished</p>
+          <p><strong id="remainingCount">90</strong> tasks remaining</p>
+        </div>
+      </aside>
+    </section>
+
+    <nav class="phase-tabs" aria-label="Challenge phases">
+      <button class="tab active" data-phase="all">All 90</button>
+      <button class="tab" data-phase="foundation">Days 1–30</button>
+      <button class="tab" data-phase="defense">Days 31–60</button>
+      <button class="tab" data-phase="advanced">Days 61–90</button>
+    </nav>
+
+    <section>
+      <div class="section-heading">
+        <h2>Daily mission log</h2>
+        <button id="resetProgress" class="ghost-button" type="button">Reset progress</button>
+      </div>
+      <div id="challengeGrid" class="challenge-grid"></div>
+    </section>
+
+    <footer>
+      <p>Stay curious. Stay ethical. Test only systems you own or have permission to assess.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
